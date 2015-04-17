@@ -51,7 +51,7 @@ If you specify the same region name twice, the last one in wins.
 You can also add regions via `LayoutView`s:
 
 ```js
-var AppLayoutView = Backbone.Marionette.LayoutView.extend({
+var AppLayoutView = Marionette.LayoutView.extend({
   template: "#layout-view-template",
 
   regions: {
@@ -197,7 +197,7 @@ You can specify an `el` for the region to manage at the time
 that the region is instantiated:
 
 ```js
-var mgr = new Backbone.Marionette.Region({
+var mgr = new Marionette.Region({
   el: "#someElement"
 });
 ```
@@ -205,7 +205,7 @@ var mgr = new Backbone.Marionette.Region({
 The `el` option can also be a raw DOM node reference:
 
 ```js
-var mgr = new Backbone.Marionette.Region({
+var mgr = new Marionette.Region({
   el: document.querySelector("body")
 });
 ```
@@ -213,7 +213,7 @@ var mgr = new Backbone.Marionette.Region({
 Or the `el` can also be a `jQuery` wrapped DOM node:
 
 ```js
-var mgr = new Backbone.Marionette.Region({
+var mgr = new Marionette.Region({
   el: $("body")
 });
 ```
@@ -395,7 +395,7 @@ var myView = new MyView({
   el: $("#existing-view-stuff")
 });
 
-var region = new Backbone.Marionette.Region({
+var region = new Marionette.Region({
   el: "#content",
   currentView: myView
 });
@@ -427,7 +427,7 @@ and destroying views:
 * "show" / `onShow` - Called on the region instance when the view has been rendered and displayed.
 * "before:swap" / `onBeforeSwap` - Called on the region instance before a new view is shown. NOTE: this will only be called when a view is being swapped, not when the region is empty.
 * "before:swapOut" / `onBeforeSwapOut` - Called on the region instance before a new view swapped in. NOTE: this will only be called when a view is being swapped, not when the region is empty.
-* "swap" / `onSwap` - Called on the region instance when a new view is `show`n. NOTE: this will only be called when a view is being swapped, not when the region is empty.
+* "swap" / `onSwap` - Called on the region instance when a new view is shown. NOTE: this will only be called when a view is being swapped, not when the region is empty.
 * "swapOut" / `onSwapOut` - Called on the region instance when a new view swapped in to replace the currently shown view. NOTE: this will only be called when a view is being swapped, not when the region is empty.
 
 * "before:empty" / `onBeforeEmpty` - Called on the region instance before the view has been emptied.
@@ -479,7 +479,7 @@ MyApp.mainRegion.on("empty", function(view, region, options){
   // you also have access to the `options` that were passed to the Region.show call
 });
 
-var MyRegion = Backbone.Marionette.Region.extend({
+var MyRegion = Marionette.Region.extend({
   // ...
 
   onBeforeShow: function(view, region, options) {
@@ -500,7 +500,7 @@ var MyView = Marionette.ItemView.extend({
   }
 });
 
-var MyRegion = Backbone.Marionette.Region.extend({
+var MyRegion = Marionette.Region.extend({
   // ...
 
   onBeforeSwap: function(view, region, options) {
@@ -534,7 +534,7 @@ new region class by specifying the region class as the
 value. In this case, `addRegions` expects the constructor itself, not an instance.
 
 ```js
-var FooterRegion = Backbone.Marionette.Region.extend({
+var FooterRegion = Marionette.Region.extend({
   el: "#footer"
 });
 
@@ -547,7 +547,7 @@ You can also specify a selector for the region by using
 an object literal for the configuration.
 
 ```js
-var FooterRegion = Backbone.Marionette.Region.extend({
+var FooterRegion = Marionette.Region.extend({
   el: "#footer"
 });
 
@@ -572,7 +572,7 @@ need to extend from `Region` as shown above and then use
 that constructor function on your own:
 
 ```js
-var SomeRegion = Backbone.Marionette.Region.extend({
+var SomeRegion = Marionette.Region.extend({
   el: "#some-div",
 
   initialize: function(options){
